@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WCU_App.MainPage">
+
+    <ScrollView>
+        <StackLayout>
+            <VerticalStackLayout>
+                <Label Text="WCU" FontSize="56" FontAttributes="Bold" TextColor="DarkBlue" Style="{StaticResource Headline}" />
+                <Label Text="Western College University" FontSize="26" Style="{StaticResource SubHeadline}"/>
+            </VerticalStackLayout>
+            
+            <VerticalStackLayout>
+                
+                <ScrollView Orientation="Horizontal">
+                    <HorizontalStackLayout x:Name="termStack" Spacing="15" Padding="20">
+                        <!-- Changed to programatically create term buttons-->
+                    </HorizontalStackLayout>
+                </ScrollView>
+
+                <Border Stroke="Black" StrokeThickness="3" Padding="5">
+                    <VerticalStackLayout>
+
+                        <HorizontalStackLayout Spacing="50" HorizontalOptions="Center">
+                            <Entry x:Name="termTitle" Text="Term Title" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="32" TextChanged="termTitleChange"/>
+                        </HorizontalStackLayout>
+                
+                        <HorizontalStackLayout HorizontalOptions="Center" BackgroundColor="White" Spacing="50">
+                            <VerticalStackLayout>
+                                <Label Text="Start Date:" HorizontalTextAlignment="Center"  FontSize="26"/>
+                                <DatePicker x:Name="termStart" DateSelected="termStart_DateSelected"></DatePicker>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout>
+                                <Label Text="End Date:" HorizontalTextAlignment="Center"  FontSize="26"/>
+                                <DatePicker x:Name="termEnd" DateSelected="termEnd_DateSelected"></DatePicker>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    
+                    </VerticalStackLayout>
+                </Border>
+                
+                <VerticalStackLayout x:Name="courseStack"  Spacing="20" Padding="15">
+                    <!-- Changed to programatically create course buttons-->
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
