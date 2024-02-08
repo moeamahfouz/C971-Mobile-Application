@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WCU_App.CoursePage"
+             Title="Course Page">
+    <ScrollView>
+        <VerticalStackLayout Padding="8" Spacing="5">
+            
+            <Entry x:Name="courseTitle" Text="Course Title" FontSize="40" FontAttributes="Bold" TextColor="DarkBlue" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextChanged="courseTitle_TextChanged"/>
+            
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Label Text="Course Status:" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" FontSize="28"/>
+                <Picker x:Name="courseStatus" FontSize="28" HorizontalOptions="Center" VerticalOptions="Center" SelectedIndexChanged="courseStatus_SelectedIndexChanged"></Picker>
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="15" Padding="15">
+                <HorizontalStackLayout>
+                    <Label Text="Start Date" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" FontSize="20"/>
+                    <DatePicker x:Name="courseStart" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" DateSelected="courseStart_DateSelected"></DatePicker>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="End Date" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" FontSize="20"/>
+                    <DatePicker x:Name="courseEnd" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" DateSelected="courseEnd_DateSelected"></DatePicker>
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+
+            <Border Stroke="DarkBlue" StrokeThickness="3" Padding="8">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Course Details" FontSize="20" HorizontalOptions="Center" FontAttributes="Bold"/>
+                    <Entry Text="Details" x:Name="courseDetails" FontSize="16" HorizontalTextAlignment="Center" TextChanged="courseDetails_TextChanged"/>
+                </VerticalStackLayout>
+            </Border>
+
+
+            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="10">
+                 <Label Text="Course Instructor Information" FontAttributes="Bold" FontSize="22" Padding="10" />
+                 <Label Text="Instructor Name" FontSize="16" HorizontalOptions="Center" />
+                 <Entry x:Name="instructorName" FontSize="16" HorizontalTextAlignment="Center" TextChanged="instructorName_TextChanged" />
+                 <Label Text="Instructor Phone" FontSize="16" HorizontalOptions="Center" />
+                 <Entry x:Name="instructorPhone" FontSize="16" HorizontalTextAlignment="Center" TextChanged="instructorPhone_TextChanged"/>
+                 <Label Text="Instructor Email" FontSize="16" HorizontalOptions="Center" />
+                 <Entry x:Name="instructorEmail" FontSize="16" HorizontalTextAlignment="Center" TextChanged="instructorEmail_TextChanged"/>
+             </VerticalStackLayout>
+
+
+
+            <Border Stroke="DarkBlue" StrokeThickness="3" Padding="8">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Notifications" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Label Text="Notify Me This Many Days Before Course Starts" FontSize="16" />
+                    <Picker x:Name="courseStartNotif" SelectedIndexChanged="courseStartNotif_SelectedIndexChanged"></Picker>
+                    <Label Text="Notify Me This Many Days Before Course Ends" FontSize="16" />
+                    <Picker x:Name="courseEndNotif" SelectedIndexChanged="courseEndNotif_SelectedIndexChanged"></Picker>
+                </VerticalStackLayout>
+            </Border>
+
+
+            <Border Stroke="DarkBlue" StrokeThickness="3" Padding="8">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Course Notes" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <VerticalStackLayout x:Name="noteStack">
+                    </VerticalStackLayout>
+                    <Entry Text="New Note" x:Name="noteInput"/>
+                    <Button Text="Add Note" Clicked="addNote"/>
+                </VerticalStackLayout>
+            </Border>
+
+
+            <Border  Stroke="DarkBlue" StrokeThickness="8" Padding="10">
+                <VerticalStackLayout>
+                    <Label Text="Assessments" FontSize="24" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Border  Stroke="LightBlue" StrokeThickness="3" Padding="10">
+                        <VerticalStackLayout>
+                            <Label Text="Performance Assessment" FontSize="16" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                            <Entry x:Name="paName" Text="Assessment Name" HorizontalTextAlignment="Center" TextChanged="paName_TextChanged"/>
+                            <Label Text="Start Date"/>
+                            <DatePicker x:Name="paStart" DateSelected="paStart_DateSelected"></DatePicker>
+                            <Label Text="End Date"/>
+                            <DatePicker x:Name="paEnd" DateSelected="paEnd_DateSelected"></DatePicker>
+                            <Label Text="Notify Days Before Start Date:" FontSize="Small" />
+                            <Picker x:Name="paStartNotif" SelectedIndexChanged="paStartNotif_SelectedIndexChanged"></Picker>
+                            <Label Text="Notify Days Before End Date:" FontSize="Small" />
+                            <Picker x:Name="paEndNotif" SelectedIndexChanged="paEndNotif_SelectedIndexChanged"></Picker>
+                        </VerticalStackLayout>
+                    </Border>
+
+
+                    <Border  Stroke="LightBlue" StrokeThickness="3" Padding="5">
+                        <VerticalStackLayout>
+                            <Label Text="Objective Assessment" FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center"/>
+                            <Entry x:Name="oaName" Text="Assessment Name" HorizontalTextAlignment="Center" TextChanged="oaName_TextChanged"/>
+                            <Label Text="Start Date"/>
+                            <DatePicker x:Name="oaStart" DateSelected="oaStart_DateSelected"></DatePicker>
+                            <Label Text="End Date"/>
+                            <DatePicker x:Name="oaEnd" DateSelected="oaEnd_DateSelected"></DatePicker>
+                            <Label Text="Notify Days Before Start Date:" FontSize="Small" />
+                            <Picker x:Name="oaStartNotif" SelectedIndexChanged="oaStartNotif_SelectedIndexChanged" ></Picker>
+                            <Label Text="Notify Days Before End Date:" FontSize="Small" />
+                            <Picker x:Name="oaEndNotif" SelectedIndexChanged="oaEndNotif_SelectedIndexChanged"></Picker>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>

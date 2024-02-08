@@ -21,8 +21,8 @@ namespace WCU_App
         public MainPage()
         {
             InitializeComponent();
-            loadSavedData();
             loadDefaultData();  //Feel free to comment this out if you'd like values to save over sessions
+            loadSavedData();
             loadUI(1);
             statusValues.Add("Scheduled");
             statusValues.Add("In Progress");
@@ -203,7 +203,7 @@ namespace WCU_App
             Exam OA = new Exam(0, "A Rock Exam", DateTime.Now, DateTime.Now.AddMonths(3), "Do you truly know about rocks?", 1);
             DataFunctions.addAssessment(db, PA);
             DataFunctions.addAssessment(db, OA);
-            Instructor instructor = new Instructor("Rocky McStone", "555-555-7625", "rmcstone@geologyuniversity.rdu");
+            Instructor instructor = new Instructor("Anika Patel", "555-123-4567", "anika.patel@strimeuniversity.edu");
             DataFunctions.addInstructor(db, instructor);
             Note note1 = new Note(1, "Pebbles are small");
             DataFunctions.addNote(db, note1);
@@ -353,7 +353,7 @@ namespace WCU_App
                     RightItems = new SwipeItems(items),
                     Content = grid
                 };
-                button.Clicked += async (sender, args) => await Navigation.PushAsync(new CourseView(course.courseID));
+                button.Clicked += async (sender, args) => await Navigation.PushAsync(new CoursePage(course.courseID));
 
                 courseStack.Children.Add(swp);
             }

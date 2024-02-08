@@ -28,11 +28,11 @@
                         <HorizontalStackLayout HorizontalOptions="Center" BackgroundColor="White" Spacing="50">
                             <VerticalStackLayout>
                                 <Label Text="Start Date:" HorizontalTextAlignment="Center"  FontSize="26"/>
-                                <DatePicker x:Name="termStart" DateSelected="termStart_DateSelected"></DatePicker>
+                                <DatePicker x:Name="termStart" FontSize="26" DateSelected="termStart_DateSelected"></DatePicker>
                             </VerticalStackLayout>
                             <VerticalStackLayout>
                                 <Label Text="End Date:" HorizontalTextAlignment="Center"  FontSize="26"/>
-                                <DatePicker x:Name="termEnd" DateSelected="termEnd_DateSelected"></DatePicker>
+                                <DatePicker x:Name="termEnd" FontSize="26" DateSelected="termEnd_DateSelected"></DatePicker>
                             </VerticalStackLayout>
                         </HorizontalStackLayout>
                     
