@@ -1,3 +1,4 @@
+C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-android\android\bin\classes2.dex
 C:\Repos\WCU_App\WCU_App\WCU_App\bin\Debug\net8.0-android\WCU_App.runtimeconfig.json
 C:\Repos\WCU_App\WCU_App\WCU_App\bin\Debug\net8.0-android\WCU_App.dll
 C:\Repos\WCU_App\WCU_App\WCU_App\bin\Debug\net8.0-android\WCU_App.pdb
@@ -1078,7 +1079,6 @@ C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-android\android\marshal_method
 C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-android\android\jni_remap.x86_64.o
 C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-android\app_shared_libraries\x86_64\libxamarin-app.so
 C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-android\android\bin\classes.dex
-C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-android\android\bin\classes2.dex
 C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-android\stamp\_CleanIntermediateIfNeeded.stamp
 C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-android\stamp\_CompileJava.stamp
 C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-android\stamp\_CompileToDalvik.stamp

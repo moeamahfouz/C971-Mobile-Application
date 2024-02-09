@@ -269,6 +269,7 @@ C:\Repos\WCU_App\WCU_App\WCU_App\bin\Debug\net8.0-ios\iossimulator-x64\libxamari
 C:\Repos\WCU_App\WCU_App\WCU_App\bin\Debug\net8.0-ios\iossimulator-x64\libxamarin-dotnet-nativeaot.a
 C:\Repos\WCU_App\WCU_App\WCU_App\bin\Debug\net8.0-ios\iossimulator-x64\libxamarin-dotnet.a
 C:\Repos\WCU_App\WCU_App\WCU_App\bin\Debug\net8.0-ios\iossimulator-x64\libxamarin-dotnet.dylib
+C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-ios\iossimulator-x64\build-signature\signature
 C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-ios\iossimulator-x64\mauiimage.inputs
 C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-ios\iossimulator-x64\mauifont.inputs
 C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-ios\iossimulator-x64\mauisplash.inputs

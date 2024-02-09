@@ -54,7 +54,7 @@ public partial class CoursePage : ContentPage
     {
         var db = new SQLiteConnection(MainPage.appDatabase);
         currentCourse.courseName = courseTitle.Text;
-        DataFunctions.updateCourse(db, currentCourse);
+        AppFunctions.updateCourse(db, currentCourse);
         MainPage.sync_db();
     }
 
@@ -62,7 +62,7 @@ public partial class CoursePage : ContentPage
     {
         var db = new SQLiteConnection(MainPage.appDatabase);
         currentCourse.status = courseStatus.SelectedItem as string;
-        DataFunctions.updateCourse(db, currentCourse);
+        AppFunctions.updateCourse(db, currentCourse);
         MainPage.sync_db();
     }
 
@@ -72,7 +72,7 @@ public partial class CoursePage : ContentPage
 		if (valid)
 		{
             currentCourse.start = e.NewDate;
-			DataFunctions.updateCourse(db, currentCourse);
+			AppFunctions.updateCourse(db, currentCourse);
             MainPage.sync_db();
         }	
 		
@@ -85,7 +85,7 @@ public partial class CoursePage : ContentPage
         if (valid)
         {
             currentCourse.end = e.NewDate;
-            DataFunctions.updateCourse(db, currentCourse);
+            AppFunctions.updateCourse(db, currentCourse);
             MainPage.sync_db();
         }
     }
@@ -94,7 +94,7 @@ public partial class CoursePage : ContentPage
     private void courseDetails_TextChanged(object sender, TextChangedEventArgs e)
     {
         currentCourse.courseDetails = courseDetails.Text;
-        DataFunctions.updateCourse(db, currentCourse);
+        AppFunctions.updateCourse(db, currentCourse);
         MainPage.sync_db();
 
     }
@@ -105,7 +105,7 @@ public partial class CoursePage : ContentPage
         if (e.NewTextValue != null)
         {
             currentInstructor.instructorName = e.NewTextValue;
-            DataFunctions.updateInstructor(db, currentInstructor);
+            AppFunctions.updateInstructor(db, currentInstructor);
             MainPage.sync_db();
         }
     }
@@ -117,7 +117,7 @@ public partial class CoursePage : ContentPage
         if (e.NewTextValue != null)
         {
             currentInstructor.instructorPhone = e.NewTextValue;
-            DataFunctions.updateInstructor(db, currentInstructor);
+            AppFunctions.updateInstructor(db, currentInstructor);
             MainPage.sync_db();
         }
     }
@@ -128,7 +128,7 @@ public partial class CoursePage : ContentPage
         if (e.NewTextValue != null)
         {
             currentInstructor.instructorEmail = e.NewTextValue;
-            DataFunctions.updateInstructor(db, currentInstructor);
+            AppFunctions.updateInstructor(db, currentInstructor);
             MainPage.sync_db();
         }
     }
@@ -136,14 +136,14 @@ public partial class CoursePage : ContentPage
     private void courseStartNotif_SelectedIndexChanged(object sender, EventArgs e)
     {
         currentCourse.startNotification = Convert.ToInt32(courseStartNotif.SelectedItem);
-        DataFunctions.updateCourse(db, currentCourse);
+        AppFunctions.updateCourse(db, currentCourse);
         MainPage.sync_db();
         
     }
     private void courseEndNotif_SelectedIndexChanged(object sender, EventArgs e)
     {
         currentCourse.endNotification = Convert.ToInt32(courseEndNotif.SelectedItem);
-        DataFunctions.updateCourse(db, currentCourse);
+        AppFunctions.updateCourse(db, currentCourse);
         MainPage.sync_db();
 
     }
@@ -199,7 +199,7 @@ public partial class CoursePage : ContentPage
     {
         var item = sender as SwipeItem;
         var note = item.BindingContext as Note;
-        DataFunctions.deleteNote(note);
+        AppFunctions.deleteNote(note);
         MainPage.sync_db();
         courseNotes();
     }
@@ -218,7 +218,7 @@ public partial class CoursePage : ContentPage
         if (noteInput.Text != null)
         {
             Note note = new Note(currentCourse.courseID, noteInput.Text);
-            DataFunctions.addNote(db, note);
+            AppFunctions.addNote(db, note);
             MainPage.sync_db();
         }
         noteInput.Text = "";
@@ -230,7 +230,7 @@ public partial class CoursePage : ContentPage
         if (e.NewTextValue != null)
         {
             PA.examName = e.NewTextValue;
-            DataFunctions.updateAssessment(db, PA);
+            AppFunctions.updateExam(db, PA);
             MainPage.sync_db();
         }
     }
@@ -252,7 +252,7 @@ public partial class CoursePage : ContentPage
     private void paStartNotif_SelectedIndexChanged(object sender, EventArgs e)
     {
         PA.startNotif = Convert.ToInt32(paStartNotif.SelectedItem);
-        DataFunctions.updateAssessment(db, PA);
+        AppFunctions.updateExam(db, PA);
         MainPage.sync_db();
 
     }
@@ -260,7 +260,7 @@ public partial class CoursePage : ContentPage
     private void paEndNotif_SelectedIndexChanged(object sender, EventArgs e)
     {
         PA.endNotif = Convert.ToInt32(paEndNotif.SelectedItem);
-        DataFunctions.updateAssessment(db, PA);
+        AppFunctions.updateExam(db, PA);
         MainPage.sync_db();
 
 
@@ -271,7 +271,7 @@ public partial class CoursePage : ContentPage
         if (e.NewTextValue != null)
         {
             OA.examName = e.NewTextValue;
-            DataFunctions.updateAssessment(db, OA);
+            AppFunctions.updateExam(db, OA);
             MainPage.sync_db();
         }
 
@@ -294,7 +294,7 @@ public partial class CoursePage : ContentPage
     private void oaStartNotif_SelectedIndexChanged(object sender, EventArgs e)
     {
         OA.startNotif = Convert.ToInt32(oaStartNotif.SelectedItem);
-        DataFunctions.updateAssessment(db, OA);
+        AppFunctions.updateExam(db, OA);
         MainPage.sync_db();
 
     }
@@ -304,7 +304,7 @@ public partial class CoursePage : ContentPage
     {   
         var db = new SQLiteConnection(MainPage.appDatabase);
         OA.endNotif = Convert.ToInt32(oaEndNotif.SelectedItem);
-        DataFunctions.updateAssessment(db, OA);
+        AppFunctions.updateExam(db, OA);
         MainPage.sync_db();
 
     }

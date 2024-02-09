@@ -21,7 +21,7 @@ namespace WCU_App
         public MainPage()
         {
             InitializeComponent();
-            loadDefaultData();  //Feel free to comment this out if you'd like values to save over sessions
+            //loadDefaultData();  //Uncomment this function if you'd like data to reset to default values upon reopening app
             loadSavedData();
             loadUI(1);
             statusValues.Add("Scheduled");
@@ -56,7 +56,6 @@ namespace WCU_App
             {
                 foreach (Course course in listCourse)
                 {
-                    //Check if course notif time is 0
                     if (course.startNotification == 0)
                     {
                         cancelledRequests.Add(course.courseID + 1000);
@@ -169,46 +168,46 @@ namespace WCU_App
         {
 
             File.Delete(appDatabase);
-            DataFunctions.createTable();
+            AppFunctions.createTable();
             var db = new SQLiteConnection(appDatabase);
             Term term1 = new Term("Fall Term", DateTime.Now, DateTime.Now.AddMonths(6));
             Term term2 = new Term("Winter Term", DateTime.Now.AddMonths(6), DateTime.Now.AddMonths(12));
-            DataFunctions.addTerm(db, term1);
-            DataFunctions.addTerm(db, term2);
+            AppFunctions.addTerm(db, term1);
+            AppFunctions.addTerm(db, term2);
             Course course1 = new Course(1, 1, "Geology", DateTime.Now, DateTime.Now.AddMonths(1), "In Progress", "An introduction to rocks", 1, 2);
             Course course2 = new Course(1, 1, "Advanced Geology", DateTime.Now.AddMonths(1), DateTime.Now.AddMonths(2), "Scheduled", "A deeper dive into rocks", 1, 1);
             Course course3 = new Course(1, 1, "Applied Geology", DateTime.Now.AddMonths(2), DateTime.Now.AddMonths(3), "Scheduled", "Hands on with rocks", 1, 1);
             Course course4 = new Course(1, 1, "History of Geology", DateTime.Now.AddMonths(3), DateTime.Now.AddMonths(4), "Scheduled", "Rocks in the past", 1, 1);
             Course course5 = new Course(1, 1, "Statistical Geology", DateTime.Now.AddMonths(4), DateTime.Now.AddMonths(5), "Scheduled", "The chances of rocks", 1, 1);
             Course course6 = new Course(1, 1, "Geology 2", DateTime.Now.AddMonths(5), DateTime.Now.AddMonths(6), "Scheduled", "Return of the rocks", 1, 1);
-            DataFunctions.addCourse(db, course1);
-            DataFunctions.addCourse(db, course2);
-            DataFunctions.addCourse(db, course3);
-            DataFunctions.addCourse(db, course4);
-            DataFunctions.addCourse(db, course5);
-            DataFunctions.addCourse(db, course6);
+            AppFunctions.addCourse(db, course1);
+            AppFunctions.addCourse(db, course2);
+            AppFunctions.addCourse(db, course3);
+            AppFunctions.addCourse(db, course4);
+            AppFunctions.addCourse(db, course5);
+            AppFunctions.addCourse(db, course6);
             course1 = new Course(2, 1, "Physics in Geology", DateTime.Now.AddMonths(6), DateTime.Now.AddMonths(7), "Scheduled", "What happens if you throw a rock really hard?", 1, 2);
             course2 = new Course(2, 1, "Criminal Geology", DateTime.Now.AddMonths(7), DateTime.Now.AddMonths(8), "Scheduled", "When rocks fall into the wrong hands", 1, 2);
             course3 = new Course(2, 1, "Ethical Geology", DateTime.Now.AddMonths(8), DateTime.Now.AddMonths(9), "Scheduled", "Discussing right from rock", 1, 2);
             course4 = new Course(2, 1, "Social Geology", DateTime.Now.AddMonths(9), DateTime.Now.AddMonths(10), "Scheduled", "All rocks are created equal", 1, 2);
             course5 = new Course(2, 1, "Theoretical Geology", DateTime.Now.AddMonths(10), DateTime.Now.AddMonths(11), "Scheduled", "Rocks?", 1, 2);
             course6 = new Course(2, 1, "English", DateTime.Now.AddMonths(11), DateTime.Now.AddMonths(12), "Scheduled", "You'll learn how to spell", 1, 2);
-            DataFunctions.addCourse(db, course1);
-            DataFunctions.addCourse(db, course2);
-            DataFunctions.addCourse(db, course3);
-            DataFunctions.addCourse(db, course4);
-            DataFunctions.addCourse(db, course5);
-            DataFunctions.addCourse(db, course6);
+            AppFunctions.addCourse(db, course1);
+            AppFunctions.addCourse(db, course2);
+            AppFunctions.addCourse(db, course3);
+            AppFunctions.addCourse(db, course4);
+            AppFunctions.addCourse(db, course5);
+            AppFunctions.addCourse(db, course6);
             Exam PA = new Exam(1, "Working with Rocks", DateTime.Now, DateTime.Now.AddMonths(3), "It's time to handle some rocks", 1);
             Exam OA = new Exam(0, "A Rock Exam", DateTime.Now, DateTime.Now.AddMonths(3), "Do you truly know about rocks?", 1);
-            DataFunctions.addAssessment(db, PA);
-            DataFunctions.addAssessment(db, OA);
+            AppFunctions.addExam(db, PA);
+            AppFunctions.addExam(db, OA);
             Instructor instructor = new Instructor("Anika Patel", "555-123-4567", "anika.patel@strimeuniversity.edu");
-            DataFunctions.addInstructor(db, instructor);
+            AppFunctions.addInstructor(db, instructor);
             Note note1 = new Note(1, "Pebbles are small");
-            DataFunctions.addNote(db, note1);
+            AppFunctions.addNote(db, note1);
             note1 = new Note(1, "Boulders are big");
-            DataFunctions.addNote(db, note1);
+            AppFunctions.addNote(db, note1);
         }
 
         private void loadSavedData()
@@ -223,7 +222,7 @@ namespace WCU_App
 
             foreach (Term term in terms)
             {
-                var tmpcourses = db.Query<Course>($"SELECT * FROM Courses WHERE termId={term.termID}");
+                var tmpcourses = db.Query<Course>($"SELECT * FROM Courses WHERE termID={term.termID}");
                 List<Course> CourseList = new List<Course>();
                 foreach (Course course in tmpcourses)
                 {
@@ -232,10 +231,10 @@ namespace WCU_App
                 }
                 courses.Add(term, CourseList);
             }
-            var tmpAssessment = db.Query<Exam>("SELECT * FROM Assessments");
-            foreach (Exam assessment in tmpAssessment)
+            var tmpExam = db.Query<Exam>("SELECT * FROM Exams");
+            foreach (Exam exam in tmpExam)
             {
-                exams.Add(assessment.examID, assessment);
+                exams.Add(exam.examID, exam);
             }
             var tmpInstructor = db.Query<Instructor>("SELECT * FROM Instructors");
             foreach (Instructor instructor in tmpInstructor)
@@ -266,7 +265,7 @@ namespace WCU_App
 
             foreach (Term term in terms)
             {
-                var tmpcourses = db.Query<Course>($"SELECT * FROM Courses WHERE termId={term.termID}");
+                var tmpcourses = db.Query<Course>($"SELECT * FROM Courses WHERE termID={term.termID}");
                 List<Course> CourseList = new List<Course>();
                 foreach (Course course in tmpcourses)
                 {
@@ -275,10 +274,10 @@ namespace WCU_App
                 }
                 courses.Add(term, CourseList);
             }
-            var tmpAssessment = db.Query<Exam>("SELECT * FROM Assessments");
-            foreach (Exam assessment in tmpAssessment)
+            var tmpExam = db.Query<Exam>("SELECT * FROM Exams");
+            foreach (Exam exam in tmpExam)
             {
-                exams.Add(assessment.examID, assessment);
+                exams.Add(exam.examID, exam);
             }
             var tmpInstructor = db.Query<Instructor>("SELECT * FROM Instructors");
             foreach (Instructor instructor in tmpInstructor)
@@ -301,7 +300,6 @@ namespace WCU_App
             termSelected = terms[term - 1];
 
 
-            //Foreach Term
             foreach (Term tmpterm in terms)
             {
                 Button button = new Button
@@ -327,7 +325,6 @@ namespace WCU_App
             buttonTermAdd.Clicked += void (sender, args) => onNewTerm();
             termStack.Children.Add(buttonTermAdd);
 
-            //Foreach Course in Term
             foreach (Course course in courses[termSelected])
             {
                 Grid grid = new Grid
@@ -387,12 +384,12 @@ namespace WCU_App
 
         public void onNewCourse()
         {
-            DataFunctions.addNewCourse(termSelected.termID);
+            AppFunctions.addNewCourse(termSelected.termID);
             loadUI(termSelected.termID);
         }
         public void onNewTerm()
         {
-            DataFunctions.addNewTerm();
+            AppFunctions.addNewTerm();
             loadUI(termSelected.termID);
         }
         public void onTermDelete()
@@ -406,7 +403,7 @@ namespace WCU_App
         {
             var item = sender as SwipeItem;
             var course = item.BindingContext as Course;
-            DataFunctions.deleteCourse(course);
+            AppFunctions.deleteCourse(course);
             MainPage.sync_db();
             loadUI(termSelected.termID);
         }
@@ -429,7 +426,7 @@ namespace WCU_App
             if (e.NewTextValue != null)
             {
                 termSelected.termName = e.NewTextValue;
-                DataFunctions.updateTerm(db, termSelected);
+                AppFunctions.updateTerm(db, termSelected);
                 loadUI(termSelected.termID);
             }
         }
@@ -442,7 +439,7 @@ namespace WCU_App
             {
                 termEnd.Date = e.NewDate;
                 termSelected.end = e.NewDate;
-                DataFunctions.updateTerm(db, termSelected);
+                AppFunctions.updateTerm(db, termSelected);
             }
         }
         private void termStart_DateSelected(object sender, DateChangedEventArgs e)
@@ -453,7 +450,7 @@ namespace WCU_App
             {
                 termStart.Date = e.NewDate;
                 termSelected.start = e.NewDate;
-                DataFunctions.updateTerm(db, termSelected);
+                AppFunctions.updateTerm(db, termSelected);
             }
 
         }

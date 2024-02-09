@@ -13,12 +13,11 @@
             <VerticalStackLayout>
                 
                 <ScrollView Orientation="Horizontal">
-                    <HorizontalStackLayout x:Name="termStack" Spacing="15" Padding="20">
-                        <!-- Changed to programatically create term buttons-->
+                    <HorizontalStackLayout x:Name="termStack" Spacing="15" Padding="20">  <!--Populates terms in horizontal stack below title-->
                     </HorizontalStackLayout>
                 </ScrollView>
 
-                <Border Stroke="Black" StrokeThickness="3" Padding="5">
+                <Border Stroke="Black" StrokeThickness="5" Padding="5">
                     <VerticalStackLayout>
 
                         <HorizontalStackLayout Spacing="50" HorizontalOptions="Center">
@@ -39,8 +38,7 @@
                     </VerticalStackLayout>
                 </Border>
                 
-                <VerticalStackLayout x:Name="courseStack"  Spacing="20" Padding="15">
-                    <!-- Changed to programatically create course buttons-->
+                <VerticalStackLayout x:Name="courseStack"  Spacing="20" Padding="15"> <!--Populates courses in vertical stack below term start and end dates-->
                 </VerticalStackLayout>
 
             </VerticalStackLayout>
