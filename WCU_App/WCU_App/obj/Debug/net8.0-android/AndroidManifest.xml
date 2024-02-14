@@ -12,7 +12,9 @@
   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
   <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
   <uses-permission android:name="android.permission.WAKE_LOCK" />
-  <application android:allowBackup="true" android:icon="@mipmap/appicon" android:supportsRtl="true" android:name="crc64424136aeb09a6aac.MainApplication" android:label="WCU_App" android:debuggable="true" android:extractNativeLibs="true">
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <application android:allowBackup="true" android:icon="@mipmap/appicon" android:supportsRtl="true" android:label="Western College University" android:name="crc64424136aeb09a6aac.MainApplication" android:debuggable="true" android:extractNativeLibs="true">
     <uses-library android:name="org.apache.http.legacy" android:required="false" />
     <activity android:configChanges="density|orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:theme="@style/Maui.SplashTheme" android:name="crc64424136aeb09a6aac.MainActivity" android:exported="true">
       <intent-filter>
@@ -42,6 +44,5 @@
     <service android:name="crc64396a3fe5f8138e3f.KeepAliveService" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="1999999999" android:authorities="com.companyname.wcu_app.mono.MonoRuntimeProvider.__mono_init__" />
   </application>
-  <!--suppress UsesMinSdkAttributes-->
-  <uses-sdk android:minSdkVersion="21" />
+  <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="33" />
 </manifest>
