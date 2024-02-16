@@ -11,7 +11,7 @@ namespace WCU_App
 
         public static void createTable()
         {
-            var appDatabase = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "AppData.db");
+            var appDatabase = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.db");
             var db = new SQLiteConnection(appDatabase);
             db.CreateTable<Term>();
             db.CreateTable<Course>();

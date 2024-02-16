@@ -17,7 +17,7 @@ namespace WCU_App
         public static List<String> statusValues = new List<String>();
         public static List<int> notificationValues = new List<int>();
         public static IList<NotificationRequest> notificationRequestsStatic = new List<NotificationRequest>();
-        public static string appDatabase = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "AppData.db");
+        public static string appDatabase = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.db");
         public MainPage()
         {
             InitializeComponent();

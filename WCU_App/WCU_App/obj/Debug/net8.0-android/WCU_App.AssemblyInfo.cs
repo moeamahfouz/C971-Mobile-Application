@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WCU_App")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+843c6fe4650a7245dc8a2957f7b048af2d2f059c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+bba6d98e040a5aff4994bcfedb395a38828f5c4f")]
 [assembly: System.Reflection.AssemblyProductAttribute("WCU_App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WCU_App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
