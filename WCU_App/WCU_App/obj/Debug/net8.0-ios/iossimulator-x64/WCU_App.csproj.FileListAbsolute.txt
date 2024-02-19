@@ -321,3 +321,4 @@ C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-ios\iossimulator-x64\refint\WC
 C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-ios\iossimulator-x64\WCU_App.pdb
 C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-ios\iossimulator-x64\WCU_App.genruntimeconfig.cache
 C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-ios\iossimulator-x64\ref\WCU_App.dll
+C:\Repos\WCU_App\WCU_App\WCU_App\obj\Debug\net8.0-ios\iossimulator-x64\build-signature\signature

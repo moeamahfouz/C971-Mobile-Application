@@ -21,8 +21,8 @@ namespace WCU_App
         public MainPage()
         {
             InitializeComponent();
-            loadDefaultData();  //Comment this function out if you'd like data to reset to default values upon reopening app
             loadSavedData();
+            loadDefaultData();  //Move this function above the loadSavedData function to reset app to default values
             loadUI(1);
             statusValues.Add("Scheduled");
             statusValues.Add("In Progress");
